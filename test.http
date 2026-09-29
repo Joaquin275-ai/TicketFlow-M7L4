@@ -1,0 +1,72 @@
+### REGISTRO
+
+POST http://localhost:3000/auth/registro
+Content-Type: application/json
+
+{
+  "nombre": "Joaquin",
+  "correo": "joaquin@test.com",
+  "clave": "123456"
+}
+
+### LOGIN
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "correo": "joaquin@test.com",
+  "clave": "123456"
+}
+
+### MIS TICKETS
+
+GET http://localhost:3000/tickets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+
+### CREAR TICKET
+
+POST http://localhost:3000/tickets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+Content-Type: application/json
+
+{
+  "titulo": "La computadora no funciona",
+  "descripcion": "La computadora de la oficina no funciona y necesito ayuda"
+}
+
+### CAMBIAR ESTADO
+
+PATCH http://localhost:3000/tickets/1/estado
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+Content-Type: application/json
+
+{
+  "estado": "en_proceso"
+}
+
+### CERRAR TICKET
+
+PATCH http://localhost:3000/tickets/1/estado
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+Content-Type: application/json
+
+{
+  "estado": "cerrado"
+}
+
+### TODOS LOS TICKETS
+
+GET http://localhost:3000/tickets/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+
+### TICKET URGENTE
+
+POST http://localhost:3000/tickets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWdlbnRlIiwiaWF0IjoxNzkwNzA3MTExLCJleHAiOjE3OTA3MTQzMTF9.l2Tue-owvQz7CQXA4YciSf8qGS93i1iFPAa65H3Xj_E
+Content-Type: application/json
+
+{
+  "titulo": "Servidor caído",
+  "descripcion": "El servidor no funciona y es urgente"
+}

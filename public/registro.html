@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crea tu cuenta en TicketFlow, el sistema de soporte interno de Bytenova." />
+  <title>Registro — TicketFlow</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <span class="auth-card__logo">TicketFlow</span>
+    <p class="auth-card__subtitle">Sistema de soporte — Bytenova</p>
+
+    <h1>Crear cuenta</h1>
+
+    <div id="msg-error"   class="msg msg--error"   role="alert"></div>
+    <div id="msg-success" class="msg msg--success" role="status"></div>
+
+    <form id="form-registro" novalidate>
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          autocomplete="name"
+          required
+          placeholder="Ana López"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          autocomplete="email"
+          required
+          placeholder="tu@correo.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="clave">Contraseña</label>
+        <input
+          type="password"
+          id="clave"
+          name="clave"
+          autocomplete="new-password"
+          required
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button
+        type="submit"
+        id="btn-submit"
+        class="btn btn-primary btn-full"
+      >
+        Crear cuenta
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      ¿Ya tienes cuenta?
+      <a href="login.html">Iniciar sesión</a>
+    </p>
+  </div>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>

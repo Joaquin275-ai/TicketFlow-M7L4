@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gestiona tus tickets de soporte en TicketFlow — Bytenova." />
+  <title>Mis tickets — TicketFlow</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body class="app-layout">
+
+  <!-- Barra superior -->
+  <header class="topbar" role="banner">
+    <div class="topbar__brand">
+      TicketFlow
+      <span>Bytenova</span>
+    </div>
+    <div class="topbar__right">
+      <span class="topbar__user" id="topbar-user" aria-live="polite"></span>
+      <button
+        id="btn-logout"
+        class="btn btn-ghost btn-sm"
+        type="button"
+      >
+        Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content" id="main">
+
+    <!-- Formulario: crear ticket -->
+    <section class="section-card" aria-labelledby="titulo-crear">
+      <h2 class="section-card__title" id="titulo-crear">Nuevo ticket</h2>
+
+      <div id="msg-crear-error"   class="msg msg--error"   role="alert"></div>
+      <div id="msg-crear-success" class="msg msg--success" role="status"></div>
+
+      <form id="form-ticket" novalidate>
+        <div class="form-group">
+          <label for="ticket-titulo">Título</label>
+          <input
+            type="text"
+            id="ticket-titulo"
+            name="titulo"
+            required
+            placeholder="Descripción breve del problema"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="ticket-descripcion">Descripción</label>
+          <textarea
+            id="ticket-descripcion"
+            name="descripcion"
+            required
+            placeholder="Explica el problema con el mayor detalle posible..."
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ticket-prioridad">Prioridad</label>
+            <select id="ticket-prioridad" name="prioridad">
+              <option value="baja">Baja</option>
+              <option value="media" selected>Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          id="btn-crear"
+          class="btn btn-primary"
+        >
+          Enviar ticket
+        </button>
+      </form>
+    </section>
+
+    <!-- Lista de tickets -->
+    <section aria-labelledby="titulo-lista">
+      <div class="tickets-header">
+        <h2 id="titulo-lista">Mis tickets</h2>
+        <!-- El boton solo aparece si el rol es "agente" (lo inserta tickets.js) -->
+        <div id="acciones-agente"></div>
+      </div>
+
+      <div id="msg-lista-error" class="msg msg--error" role="alert"></div>
+      <div id="msg-lista-info"  class="msg msg--info"  role="status"></div>
+
+      <div id="lista-tickets" aria-live="polite">
+        <p class="msg msg--info visible">Cargando tickets...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/tickets.js"></script>
+</body>
+</html>
